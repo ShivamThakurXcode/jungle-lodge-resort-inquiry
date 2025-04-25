@@ -1,10 +1,18 @@
-"use client"
+"use client";
 
-import type React from "react"
-
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { Bell, BookOpen, Home, LayoutDashboard, LogOut, MessageSquare, Settings, Users } from "lucide-react"
+import type { ReactNode } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import {
+  Bell,
+  BookOpen,
+  Home,
+  LayoutDashboard,
+  LogOut,
+  MessageSquare,
+  Settings,
+  Users,
+} from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -15,16 +23,12 @@ import {
   SidebarMenuItem,
   SidebarProvider,
   SidebarTrigger,
-} from "@/components/ui/sidebar"
-import { ThemeProvider } from "@/components/theme-provider"
-import { Button } from "@/components/ui/button"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+} from "@/components/ui/sidebar";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
-export default function DashboardLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function DashboardLayout({ children }: { children: ReactNode }) {
   return (
     <ThemeProvider attribute="class" defaultTheme="light">
       <SidebarProvider>
@@ -47,21 +51,21 @@ export default function DashboardLayout({
         </div>
       </SidebarProvider>
     </ThemeProvider>
-  )
+  );
 }
 
 function DashboardSidebar() {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   const isActive = (path: string) => {
-    return pathname === path
-  }
+    return pathname === path;
+  };
 
   return (
     <Sidebar variant="sidebar" collapsible="icon">
       <SidebarHeader className="border-b">
         <div className="flex items-center gap-2 px-2">
-          <div className="rounded-md bg-green-700 p-1">
+          <div className="rounded-md bg-green-700 p-2">
             <BookOpen className="h-5 w-5 text-white" />
           </div>
           <span className="font-semibold text-lg">Jungle & Lodge</span>
@@ -78,7 +82,10 @@ function DashboardSidebar() {
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
-            <SidebarMenuButton asChild isActive={isActive("/dashboard/bookings")}>
+            <SidebarMenuButton
+              asChild
+              isActive={isActive("/dashboard/bookings")}
+            >
               <Link href="/dashboard/bookings">
                 <Home />
                 <span>Bookings</span>
@@ -86,7 +93,10 @@ function DashboardSidebar() {
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
-            <SidebarMenuButton asChild isActive={isActive("/dashboard/inquiries")}>
+            <SidebarMenuButton
+              asChild
+              isActive={isActive("/dashboard/inquiries")}
+            >
               <Link href="/dashboard/inquiries">
                 <MessageSquare />
                 <span>Inquiries</span>
@@ -94,7 +104,10 @@ function DashboardSidebar() {
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
-            <SidebarMenuButton asChild isActive={isActive("/dashboard/reports")}>
+            <SidebarMenuButton
+              asChild
+              isActive={isActive("/dashboard/reports")}
+            >
               <Link href="/dashboard/reports">
                 <BookOpen />
                 <span>Reports</span>
@@ -102,7 +115,10 @@ function DashboardSidebar() {
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
-            <SidebarMenuButton asChild isActive={isActive("/dashboard/settings")}>
+            <SidebarMenuButton
+              asChild
+              isActive={isActive("/dashboard/settings")}
+            >
               <Link href="/dashboard/settings">
                 <Settings />
                 <span>Settings</span>
@@ -132,5 +148,5 @@ function DashboardSidebar() {
         </SidebarMenu>
       </SidebarFooter>
     </Sidebar>
-  )
+  );
 }

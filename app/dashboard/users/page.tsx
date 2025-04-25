@@ -38,12 +38,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Viewport } from "next/navigation";
-
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-};
 
 export default function UsersPage() {
   const [searchQuery, setSearchQuery] = useState("");
