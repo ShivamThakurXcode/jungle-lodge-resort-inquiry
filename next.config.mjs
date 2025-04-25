@@ -9,6 +9,12 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-}
+  logging: {
+    level: "verbose",
+  },
+  experimental: {
+    missingSuspenseWithCSRBailout: false,
+  },
+};
 
-export default nextConfig
+export default nextConfig;
